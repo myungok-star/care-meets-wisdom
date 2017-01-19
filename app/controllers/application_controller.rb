@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
    redirect_to '/volunteers/login' unless current_volunteer
   end
 
+  def current_care_group
+   @current_care_group ||= Care_group.find(session[:care_group_id]) if session[:care_group_id]
+  end
+  helper_method :current_care_group
+
+  def authorize
+   redirect_to '/care_groups/login' unless current_care_group
+  end
+
 end

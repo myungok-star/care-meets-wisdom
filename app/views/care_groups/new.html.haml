@@ -2,16 +2,21 @@
   .row
     .col-md-6.col-md-offset-3
       %br
-      %h1 Login
+      %h2 Sign Up
       %br
       .col-md-12.text-danger
         = flash[:error]
 
         = form_for :volunteer, url: '/volunteers' do |f|
           .form-group
+            = f.text_field :name, class: "form-control", placeholder: "Name"
+          .form-group
             = f.text_field :email, class: "form-control", placeholder: "Email"
           .form-group
             = f.password_field :password, class: "form-control", placeholder: "Password"
           .form-group
-          %br
-            = f.submit "Login", class: "btn btn-success"
+            = f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password"
+            = f.hidden_field :image, :value => "http://i.imgur.com/en3Tpt6.png"
+          .form-group
+            %br
+            = f.submit "Sign Up", class: "btn btn-success"

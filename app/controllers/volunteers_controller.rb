@@ -7,7 +7,7 @@ class VolunteersController < ApplicationController
     volunteer = Volunteer.new(volunteer_params)
    if volunteer.save
      session[:volunteer_id] = volunteer.id
-     redirect_to '/'
+     redirect_to '/volunteers/login'
    else
      redirect_to '/volunteers/signup'
    end
