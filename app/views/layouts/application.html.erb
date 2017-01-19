@@ -4,11 +4,24 @@
     <title>WelcomeWisdomApp</title>
     <%= csrf_meta_tags %>
 
+
+    <!-- bootstrap CDN -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+
+<% if current_volunteer %>
+  Signed in as <%= current_volunteer.name %> | <%= link_to "Logout", '/volunteers/logout' %>
+<% else %>
+  <%= link_to 'Login', '/volunteers/login' %> | <%= link_to 'Signup', '/volunteers/signup' %>
+<% end %>
+
+<%= yield %>
+
+</body>
+
 </html>

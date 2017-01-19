@@ -1,0 +1,2 @@
+module VolunteerSessionsHelper
+end
