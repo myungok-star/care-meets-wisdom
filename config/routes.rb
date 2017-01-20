@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'seniors/new'
+
+  get 'seniors/create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 root to: 'welcome#index'
@@ -23,7 +27,8 @@ root to: 'welcome#index'
 
 # volunteer routes
   get '/volunteers/:id', to: 'volunteers#show', as: 'volunteer'
-
+  get '/volunteers/:id/edit', to: 'volunteers#edit', as: 'edit_volunteer'
+  patch '/volunteers/:id', to: 'volunteers#update'
 
 # caregroup routes
 

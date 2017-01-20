@@ -16,7 +16,7 @@ class CareGroupsController < ApplicationController
   private
 
   def care_group_params
-    params.require(:care_group).permit(:name, :email, :password, :password_confirmation)
+    params.require(:care_group).permit(:name, :email, :password, :password_confirmation, :photo)
   end
 
 end
