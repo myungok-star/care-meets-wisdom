@@ -19,5 +19,19 @@ root to: 'welcome#index'
   get '/care_groups/signup' => 'care_groups#new'
   post '/care_groups' => 'care_groups#create'
 
+# end of signup and login routes
+
+# volunteer routes
+  get '/volunteers/:id', to: 'volunteers#show', as: 'volunteer'
+
+
+# caregroup routes
+
+
+
+
+
+
+
 
 end

@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WelcomeWisdomApp</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>WelcomeWisdomApp</title>
+        <%= csrf_meta_tags %>
 
-    <!-- Latest compiled and minified CSS -->
-    <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css', media: 'all' %>
-  <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css', media: 'all' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <body>
 
-  <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Welcome Wisdom</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-<nav class="navbar navbar-fixed-top container" id="navbar">
-  <div class="pull-left">
-  <a href='/'><h3>Welcome Wisdom</h3></a>
-</div>
-    <div class="row pull-right">
-        <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Volunteer
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="/volunteers/signup">Sign Up</a>
-                </li>
-                <li>
-                    <a href="/volunteers/login">Log In</a>
-                </li>
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Volunteer</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li>
+                            <a href="/volunteers/signup">Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="/volunteers/login">Log In</a>
+                        </li>
+                    </ul>
+
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Care Group</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown2' class='dropdown-content'>
+                        <li>
+                            <a href="/care_groups/signup">Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="/care_groups/login">Log In</a>
+                        </li>
+                    </ul>
             </ul>
         </div>
+    </nav>
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Care Group
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="/care_groups/signup">Sign Up</a>
-                </li>
-                <li>
-                    <a href="/care_groups/login">Log In</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<%= yield %>
+    <%= yield %>
 
 </body>
 
