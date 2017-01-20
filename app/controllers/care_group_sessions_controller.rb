@@ -19,7 +19,7 @@ class CareGroupSessionsController < ApplicationController
 
   def destroy
     session[:care_group_id] = nil
-    redirect_to '/care_groups/login'
+    redirect_to '/'
   end
 
 end

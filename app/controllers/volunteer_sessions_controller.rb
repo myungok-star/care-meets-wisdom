@@ -1,5 +1,8 @@
 class VolunteerSessionsController < ApplicationController
 
+  def index
+  end
+
   def new
     end
 
@@ -19,7 +22,7 @@ class VolunteerSessionsController < ApplicationController
 
     def destroy
       session[:volunteer_id] = nil
-      redirect_to '/volunteers/login'
+      redirect_to '/'
     end
 
 end
