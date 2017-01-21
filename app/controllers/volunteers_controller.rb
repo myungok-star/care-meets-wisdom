@@ -16,6 +16,7 @@ class VolunteersController < ApplicationController
 
   def show
     @volunteer = Volunteer.find_by_id(params[:id])
+
   end
 
 

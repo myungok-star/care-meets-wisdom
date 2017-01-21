@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'seniors/new'
-
-  get 'seniors/create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -9,11 +6,11 @@ root to: 'welcome#index'
 
   get '/volunteers/login' => 'volunteer_sessions#new'
   post '/volunteers/login' => 'volunteer_sessions#create'
-  get '/volunteers/logout' => 'volunteer_sessions#destroy'
+  delete '/volunteers/logout' => 'volunteer_sessions#destroy', as: 'destroy_volunteer_sessions'
 
   get '/care_groups/login' => 'care_group_sessions#new'
   post '/care_groups/login' => 'care_group_sessions#create'
-  get '/care_groups/logout' => 'care_group_sessions#destroy'
+  delete '/care_groups/logout' => 'care_group_sessions#destroy', as: 'destroy_care_group_sessions'
 
 # These routes will be for signup. The first renders a form in the browse, the second will
 # receive the form and create a user in our database using the data given to us by the user.
@@ -31,6 +28,8 @@ root to: 'welcome#index'
   patch '/volunteers/:id', to: 'volunteers#update'
 
 # caregroup routes
+
+  get '/care_groups/:id', to: 'care_groups#show', as: 'care_group'
 
 
 

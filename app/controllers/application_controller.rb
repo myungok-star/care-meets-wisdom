@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_care_group
-   @current_care_group ||= Care_group.find(session[:care_group_id]) if session[:care_group_id]
+   @current_care_group ||= CareGroup.find(session[:care_group_id]) if session[:care_group_id]
   end
   helper_method :current_care_group
 

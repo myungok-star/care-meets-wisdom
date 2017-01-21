@@ -6,44 +6,75 @@
 
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     </head>
 
     <body>
 
         <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Welcome Wisdom</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+  <div class="nav-wrapper">
+  <% if current_volunteer %>
+    <ul id="dropdown1" class="dropdown-content">
 
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Volunteer</a>
+        <li>
+            <%= link_to 'My Profile', volunteer_path(current_volunteer) %>
+        </li>
+        <li>
+            <%= link_to 'Log Out', destroy_volunteer_sessions_path, :method => :delete %>
+        </li>
+    </ul>
+    <% elsif current_care_group == nil %>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li>
+            <a href="/volunteers/signup">Sign Up</a>
+        </li>
+        <li>
+            <a href="/volunteers/login">Log In</a>
+        </li>
+    </ul>
 
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li>
-                            <a href="/volunteers/signup">Sign Up</a>
-                        </li>
-                        <li>
-                            <a href="/volunteers/login">Log In</a>
-                        </li>
-                    </ul>
 
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Care Group</a>
+</ul>
+<% end %>
 
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown2' class='dropdown-content'>
-                        <li>
-                            <a href="/care_groups/signup">Sign Up</a>
-                        </li>
-                        <li>
-                            <a href="/care_groups/login">Log In</a>
-                        </li>
-                    </ul>
-            </ul>
-        </div>
+  <% if current_care_group %>
+<ul id="dropdown2" class="dropdown-content">
+
+    <li>
+        <%= link_to 'My Profile', care_group_path(current_care_group) %>
+    </li>
+    <li>
+        <%= link_to 'Log Out', destroy_care_group_sessions_path, :method => :delete %>
+    </li>
+  </ul>
+  <% elsif current_volunteer == nil %>
+  <ul id='dropdown2' class='dropdown-content'>
+    <li>
+        <a href="/care_groups/signup">Sign Up</a>
+    </li>
+    <li>
+        <a href="/care_groups/login">Log In</a>
+    </li>
+  </ul>
+
+<% end %>
+
+
+    <a href="/" class="brand-logo">Welcome Wisdom</a>
+    <ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" data-activates="dropdown1">Volunteer<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button" data-activates="dropdown2">Care Group<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+
+
+
+
     </nav>
 
     <%= yield %>
 
 </body>
-
 </html>
