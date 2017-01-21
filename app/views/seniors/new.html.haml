@@ -1,0 +1,19 @@
+.container.center-align
+  .row
+    .col-md-6.col-md-offset-3
+      %br
+      %h1 New Member Registration
+      %br
+      .col-md-12.text-danger
+        = flash[:error]
+
+        = form_for :senior, url: '/care_groups/:id/seniors' do |f|
+          .form-group
+            = f.text_field :name, class: "form-control", placeholder: "Name"
+          .form-group
+            = f.text_field :location, class: "form-control", placeholder: "Location"
+            .form-group
+              = f.text_field :interests, class: "form-control", placeholder: "Interests"
+          .form-group
+          %br
+            = f.submit "Submit", class: "btn btn-success"

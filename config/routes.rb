@@ -23,13 +23,24 @@ root to: 'welcome#index'
 # end of signup and login routes
 
 # volunteer routes
+  get '/volunteers', to: 'volunteers#index', as: 'all_volunteers'
   get '/volunteers/:id', to: 'volunteers#show', as: 'volunteer'
   get '/volunteers/:id/edit', to: 'volunteers#edit', as: 'edit_volunteer'
   patch '/volunteers/:id', to: 'volunteers#update'
 
+
 # caregroup routes
 
   get '/care_groups/:id', to: 'care_groups#show', as: 'care_group'
+  get '/care_groups/:id/edit', to: 'care_groups#edit', as: 'edit_care_group'
+  patch '/care_groups/:id', to: 'care_groups#update'
+
+# senior routes
+
+  get '/care_groups/:id/seniors/new', to: 'seniors#new', as: 'new_care_group_senior'
+  post '/care_groups/:id/seniors', to: 'seniors#create'
+  get '/care_groups/:id/seniors/:id/edit', to: 'seniors#edit', as: 'edit_care_group_senior'
+  patch '/care_groups/:id/seniors/:id/', to: 'seniors#update'
 
 
 
