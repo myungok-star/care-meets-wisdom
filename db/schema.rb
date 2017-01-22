@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 20170120195430) do
   create_table "visits", force: :cascade do |t|
     t.integer  "volunteer_id"
     t.integer  "senior_id"
+    t.integer  "care_group_id"
     t.boolean  "pending"
     t.boolean  "approved"
     t.string   "date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["care_group_id"], name: "index_visits_on_care_group_id", using: :btree
     t.index ["senior_id"], name: "index_visits_on_senior_id", using: :btree
     t.index ["volunteer_id"], name: "index_visits_on_volunteer_id", using: :btree
   end
