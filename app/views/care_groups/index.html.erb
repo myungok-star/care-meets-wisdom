@@ -1,0 +1,14 @@
+
+Search by:
+
+<ul class="collection">
+  <% @care_groups.each do |care_group| %>
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="care_group_name"><%= link_to care_group.name, care_group_path(care_group) %></span>
+      <p>Location: <%= care_group.location %> <br>
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <% end %>
+  </ul>

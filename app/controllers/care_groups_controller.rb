@@ -1,5 +1,9 @@
 class CareGroupsController < ApplicationController
 
+  def index
+    @care_groups = CareGroup.all
+  end
+
   def new
   end
 
@@ -40,7 +44,7 @@ class CareGroupsController < ApplicationController
   private
 
   def care_group_params
-    params.require(:care_group).permit(:name, :email, :password, :password_confirmation, :photo)
+    params.require(:care_group).permit(:name, :email, :password, :password_confirmation, :photo, :location, :about)
   end
 
 end

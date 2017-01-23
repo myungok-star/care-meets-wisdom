@@ -30,7 +30,7 @@ root to: 'welcome#index'
 
 
 # caregroup routes
-
+  get '/care_groups', to: 'care_groups#index', as: 'all_care_groups'
   get '/care_groups/:id', to: 'care_groups#show', as: 'care_group'
   get '/care_groups/:id/edit', to: 'care_groups#edit', as: 'edit_care_group'
   patch '/care_groups/:id', to: 'care_groups#update'
