@@ -41,26 +41,9 @@
 
 <div class="col s6">
   <div class="col s12 offset-s3">
-    <% if current_care_group == CareGroup.find(params[:id]) %>
-    <%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
-    <%= link_to "View all volunteers", all_volunteers_path, class: "waves-effect waves-light btn" %>
-    <% end %>
+    <%= link_to "View all senior memebers of this group", all_care_group_seniors_path(@care_group), class: "waves-effect waves-light btn" %>
   </div>
 </div>
 
-  <div class="col s6">
-   <ul class="collection ">
-<% @seniors.each do |senior| %>
-    <li class="collection-item avatar">
-      <img src="#" alt="" class="circle">
-      <span class="title"><%= senior.name %></span>
-      <p><%= senior.location %> <br>
-         <%= senior.interests %>
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <% end %>
 
-  </ul>
-</div>
 </div>

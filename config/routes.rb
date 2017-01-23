@@ -37,10 +37,12 @@ root to: 'welcome#index'
 
 # senior routes
 
-  get '/care_groups/:id/seniors/new', to: 'seniors#new', as: 'new_care_group_senior'
-  post '/care_groups/:id/seniors', to: 'seniors#create'
-  get '/care_groups/:id/seniors/:id/edit', to: 'seniors#edit', as: 'edit_care_group_senior'
-  patch '/care_groups/:id/seniors/:id/', to: 'seniors#update'
+  get '/care_groups/:care_group_id/seniors/new', to: 'seniors#new', as: 'new_care_group_senior'
+  get '/care_groups/:care_group_id/seniors', to: 'seniors#index', as: 'all_care_group_seniors'
+  post '/care_groups/:care_group_id/seniors', to: 'seniors#create'
+  get '/care_groups/:care_group_id/seniors/:id', to: 'seniors#show', as: 'care_group_senior'
+  get '/care_groups/:care_group_id/seniors/:id/edit', to: 'seniors#edit', as: 'edit_care_group_senior'
+  patch '/care_groups/:care_group_id/seniors/:id', to: 'seniors#update'
 
 
 

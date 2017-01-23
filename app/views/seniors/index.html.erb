@@ -1,4 +1,6 @@
-all seniors
+<% if current_care_group == CareGroup.find(params[:care_group_id]) %>
+<%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
+<% end %>
 
 <div class="row">
             <% @seniors.each do |senior| %>
@@ -6,6 +8,11 @@ all seniors
                 <h2 class="name"><%= senior.name %></h2>
                 <h5 class="location"><%= senior.location %></h5>
                 <h5 class="interests"><%= senior.interests %></h5>
+                <% if current_care_group == nil %>
                 <%= link_to "Request to visit this senior" %>
+                <% elsif current_care_group == CareGroup.find(params[:care_group_id]) %>
+                <%= link_to "View", care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %>
+                <% end %>
+
                 <% end %>
         </div>
