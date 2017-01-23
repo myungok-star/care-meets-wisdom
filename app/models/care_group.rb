@@ -3,8 +3,6 @@ class CareGroup < ApplicationRecord
  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   has_many :seniors, dependent: :destroy
-  has_many :visits, dependent: :destroy
-  has_many :volunteers, through: :visits
 
   has_secure_password
 
