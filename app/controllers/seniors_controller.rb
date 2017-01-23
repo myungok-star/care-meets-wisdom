@@ -1,6 +1,7 @@
 class SeniorsController < ApplicationController
  def index
    @seniors = Senior.all
+   @care_group = current_care_group
  end
  def new
    @senior = Senior.new
@@ -11,7 +12,7 @@ class SeniorsController < ApplicationController
     @senior.care_group = current_care_group
     @care_group = current_care_group
      if @senior.save
-       redirect_to care_group_path(current_care_group)
+       redirect_to all_care_group_seniors_path(current_care_group)
      end
   end
 
@@ -39,9 +40,11 @@ class SeniorsController < ApplicationController
   end
 
   def destroy
+    @care_group = current_care_group
+    @current_care_group_id = params[:care_group_id]
     @senior = Senior.find_by_id(params[:id])
     if @senior.destroy
-      redirect_to care_group_path(current_care_group)
+      redirect_to all_care_group_seniors_path(current_care_group)
     end
   end
 

@@ -43,6 +43,7 @@ root to: 'welcome#index'
   get '/care_groups/:care_group_id/seniors/:id', to: 'seniors#show', as: 'care_group_senior'
   get '/care_groups/:care_group_id/seniors/:id/edit', to: 'seniors#edit', as: 'edit_care_group_senior'
   patch '/care_groups/:care_group_id/seniors/:id', to: 'seniors#update'
+  delete '/care_groups/:care_group_id/seniors/:id', to: 'seniors#destroy', as: 'delete_care_group_senior'
 
 
 
