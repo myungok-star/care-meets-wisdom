@@ -1,1 +1,11 @@
 all seniors
+
+<div class="row">
+            <% @seniors.each do |senior| %>
+            <div class="col s12 center-align">
+                <h2 class="name"><%= senior.name %></h2>
+                <h5 class="location"><%= senior.location %></h5>
+                <h5 class="interests"><%= senior.interests %></h5>
+                <%= link_to "Request to visit this senior" %>
+                <% end %>
+        </div>
