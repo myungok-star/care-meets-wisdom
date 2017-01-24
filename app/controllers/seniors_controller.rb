@@ -2,6 +2,7 @@ class SeniorsController < ApplicationController
  def index
    @seniors = Senior.all
    @care_group = current_care_group
+   @current_care_group_id = params[:care_group_id]
  end
  def new
    @senior = Senior.new
@@ -23,6 +24,7 @@ class SeniorsController < ApplicationController
   end
 
   def show
+    @volunteer = current_volunteer
     @care_group = current_care_group
     @current_care_group_id = params[:care_group_id]
     @senior = Senior.find_by_id(params[:id])

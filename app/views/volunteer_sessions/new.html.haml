@@ -8,11 +8,11 @@
       .col-md-12.text-danger
         = flash[:error]
 
-        = form_for :volunteer, url: '/volunteers' do |f|
+        = form_tag '/volunteers/login' do
           .form-group
-            = f.text_field :email, class: "form-control", placeholder: "Email"
+            = text_field_tag :email
           .form-group
-            = f.password_field :password, class: "form-control", placeholder: "Password"
+            = password_field_tag :password
           .form-group
           %br
-            = f.submit "Login", class: "btn btn-success"
+            = submit_tag "Login"

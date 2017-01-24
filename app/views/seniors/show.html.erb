@@ -1,7 +1,13 @@
 <%= @senior.name %>
 <%= @senior.interests %>
 
-
+<% if current_volunteer == nil %>
 <%= link_to "Edit", edit_care_group_senior_path(@senior), class: "waves-effect waves-light btn"  %>
 <%= link_to "Delete", delete_care_group_senior_path, method: :delete, class: "waves-effect waves-light btn" %>
+<% end %>
+
 <%= link_to "Back", all_care_group_seniors_path, class: "waves-effect waves-light btn" %>
+
+<% if current_care_group == nil %>
+<%= link_to "Request to visit this senior", new_senior_visit_path(@senior), class: "waves-effect waves-light btn" %>
+<% end %>

@@ -1,4 +1,4 @@
-<%= link_to "Back", care_group_path(current_care_group), class: "waves-effect waves-light btn" %>
+<%= link_to "Back", care_group_path(params[:care_group_id]), class: "waves-effect waves-light btn" %>
 
 <% if current_care_group == CareGroup.find(params[:care_group_id]) %>
 <%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
@@ -10,9 +10,7 @@
                 <h2 class="name"><%= link_to senior.name, care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %></h2>
                 <h5 class="location"><%= senior.location %></h5>
                 <h5 class="interests"><%= senior.interests %></h5>
-                <% if current_care_group == nil %>
-                <%= link_to "Request to visit this senior" %>
-                <% end %>
+
         </div>
         <% end %>
       </div>

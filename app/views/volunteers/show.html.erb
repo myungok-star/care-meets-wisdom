@@ -69,4 +69,19 @@
     </li>
   </ul>
 </div>
+<br>
+<div class="row col s12">
+      <h3>Waiting for Visit request to be approved</h3>
+
+  <div class="row">
+      <div class="media-body">
+        <% @volunteer.visits.each do |visit| %>
+        <% if visit.pending? %>
+          <h4><%= link_to visit.senior.name, care_group_senior_path(visit.senior) %></h4>
+            <%= link_to "Cancel request", delete_visit_path(visit), method: :delete %><br>
+          <% end %>
+          <% end %>
+      </div>
+      </div>
+  </div>
 </div>

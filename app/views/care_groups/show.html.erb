@@ -45,5 +45,18 @@
   </div>
 </div>
 
-
+<div class="page-header">
+        <h3>Visit Pending My Approval</h3></div>
+    <div class="media">
+        <div class="media-body">
+          <% @care_group.seniors.each do |senior| %>
+          <% senior.visits.each do |visit| %>
+          <% if visit.pending? %>
+            <h4><%= link_to visit.volunteer.name, volunteer_path(visit.volunteer) %> wants to visit <%= visit.senior.name %><br></h4>
+            <%= link_to "Accept or Next Time", senior_visit_path(senior, visit) %><br>
+            <% end %>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>
