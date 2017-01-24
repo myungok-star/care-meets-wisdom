@@ -74,14 +74,17 @@
       <h3>Waiting for Visit request to be approved</h3>
 
   <div class="row">
+    <% @volunteer.visits.each do |visit| %>
       <div class="media-body">
-        <% @volunteer.visits.each do |visit| %>
+
         <% if visit.pending? %>
           <h4><%= link_to visit.senior.name, care_group_senior_path(visit.senior) %></h4>
-            <%= link_to "Cancel request", delete_visit_path(visit), method: :delete %><br>
+            <%= link_to "Cancel request",  delete_visit_path({senior_id: visit.senior, id: visit}), method: :delete %><br>
           <% end %>
-          <% end %>
+
       </div>
+      <% end %>
       </div>
+
   </div>
 </div>

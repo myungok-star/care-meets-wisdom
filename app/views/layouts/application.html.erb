@@ -77,7 +77,13 @@
 
     </nav>
 <div class="main">
+
 </div>
+<%- flash.each do |name, msg| -%>
+
+     <strong><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></strong>
+  
+ <%- end -%>
     <%= yield %>
 
 </body>

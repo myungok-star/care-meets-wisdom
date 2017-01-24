@@ -11,7 +11,7 @@ class CareGroupsController < ApplicationController
     @care_group = CareGroup.new(care_group_params)
       if @care_group.save
         session[:care_group_id] = @care_group.id
-        redirect_to care_group_path(@care_group)
+        redirect_to '/care_groups/login'
       else
         redirect_to '/care_groups/signup'
       end

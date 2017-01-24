@@ -1,0 +1,15 @@
+
+
+	<div class="container">
+	  
+
+  <% if current_care_group != nil && current_care_group == @visit.senior.caregroup %>
+			<div class="row">
+	        <div class="col s5">
+						<h2><%= @visit.volunteer.name %> wants to visit <%= @visit.senior.name %></h2>
+						<%= button_to "Yes!", approve_visit_path(@visit), method: :put, class:"btn btn-primary" %><br>
+						<%= button_to "Next Time!", rental_path(@rental), method: :delete, class:"btn btn-danger" %><br>
+					</div>
+					<% end %>
+	    </div>
+	    <%= link_to "Back", :back, method: :get %>

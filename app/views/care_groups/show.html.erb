@@ -47,6 +47,7 @@
 
 <div class="page-header">
         <h3>Visit Pending My Approval</h3></div>
+        <% if current_volunteer = nil %>
     <div class="media">
         <div class="media-body">
           <% @care_group.seniors.each do |senior| %>
@@ -59,4 +60,4 @@
             <% end %>
         </div>
     </div>
-</div>
+    <% end %>

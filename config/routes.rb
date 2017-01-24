@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 root to: 'welcome#index'
 
+
   get '/volunteers/login' => 'volunteer_sessions#new'
   post '/volunteers/login' => 'volunteer_sessions#create', as: "create_volunteer_session"
   delete '/volunteers/logout' => 'volunteer_sessions#destroy', as: 'destroy_volunteer_sessions'
@@ -47,9 +48,7 @@ root to: 'welcome#index'
 
 # visit routes
 
-  resources :seniors do
-      resources:visits
-    end
+
     # senior_visits GET    /seniors/:senior_id/visits(.:format)                   visits#index
     #                             POST   /seniors/:senior_id/visits(.:format)                   visits#create
     #            new_senior_visit GET    /seniors/:senior_id/visits/new(.:format)               visits#new
@@ -57,7 +56,12 @@ root to: 'welcome#index'
     #                senior_visit GET    /seniors/:senior_id/visits/:id(.:format)               visits#show
     #                             PATCH  /seniors/:senior_id/visits/:id(.:format)               visits#update
     #                             PUT    /seniors/:senior_id/visits/:id(.:format)               visits#update
-  delete '/seniors/:senior_id/visits/:id', to: 'visits#destroy', as: 'delete_visit'
+
+delete '/seniors/:senior_id/visits/:id', to: 'visits#destroy', as: 'delete_visit'
+
+post '/seniors/:senior_id/visits', to: 'visits#create', as: 'new_senior_visit'
+
+get '/seniors/:senior_id/visits/:id', to: 'visits#show', as: 'senior_visit'
 
 
 
