@@ -1,20 +1,15 @@
+<div class="wrapper">
+   <img src="http://i.imgur.com/9fuL9X0.jpg" id="main-photo" alt="main-photo">
+ <!-- <div class="title container center-align">
+   <h2 class="font-bold"> -->
+  <div class="title center-align">
+     Welcome to the Welcome Wisdom!
+   <!-- </h2> -->
+Have a cup of tea or play games with seniors who would love to meet you. You will make their days bright.
 
-      <div class="row">
-
-        <div class="container center-align">
-            <h2 class="font-bold">
-              Welcome to the Welcome Wisdom!
-            </h2>
-            <h4 class="text-muted">Have a cup of tea or play games with seniors who would love to meet you. You will make their days bright.
-            </h4>
-          </div>
-
-            <div class="row">
-                <div class="container center-align">
-
-            <%= button_to 'Sign Up as Volunteer', '/volunteers/signup', method: :get, class: "btn b-2x btn-lg b-white btn-info btn-rounded text-lg font-bold m-b-xxl animated fadeInUp", form: {style: 'display:inline-block;'} %>
-              <%= button_to 'Sign Up as Care Group', '/care_groups/signup', method: :get, class: "btn b-2x btn-lg b-white btn-info btn-rounded text-lg font-bold m-b-xxl animated fadeInUp", form: {style: 'display:inline-block;'} %>
-
-        </div>
-        </div>
-      </div>
+  <div class="signup-btn">
+    <%= link_to 'Sign Up as Volunteer', '/volunteers/signup', method: :get, class: "waves-effect waves-light btn" %>
+    <%= link_to 'Sign Up as Care Group', '/care_groups/signup', method: :get, class: "waves-effect waves-light btn" %>
+  </div>
+</div>
+ </div>
