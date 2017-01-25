@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="row">
-            <% @seniors.each do |senior| %>
+            <% @care_group.seniors.each do |senior| %>
             <div class="col s12 center-align">
                 <h2 class="name"><%= link_to senior.name, care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %></h2>
                 <h5 class="location"><%= senior.location %></h5>
@@ -14,3 +14,18 @@
         </div>
         <% end %>
       </div>
+
+      <div class="page-header">
+    					<h3>Visit Request Pending My Approval</h3></div>
+    			<div class="media">
+    					<div class="media-body">
+    						<% @care_group.seniors.each do |senior| %>
+    						<% senior.visits.each do |visit| %>
+    						<% if visit.pending? %>
+    							<h4><%= link_to visit.volunteer.name, volunteer_path(visit.volunteer) %> wants to visit <%= visit.senior.name %><br></h4>
+    							<%= link_to "approve or deny", dog_rental_path(dog, rental) %><br>
+    							<% end %>
+    							<% end %>
+    							<% end %>
+    					</div>
+    			</div>

@@ -2,8 +2,8 @@ class VisitsController < ApplicationController
 
 def create
   @visit = Visit.new
-  @visit.senior_id = Senior.find_by_id(params[:senior_id]).id
-  @visit.volunteer_id = current_volunteer.id
+  @visit.senior = Senior.find_by_id(params[:senior_id])
+  @visit.volunteer = current_volunteer
   @visit.pending = true
   @visit.approved = false
   @care_group = @visit.senior.care_group

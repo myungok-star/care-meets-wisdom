@@ -39,7 +39,7 @@ root to: 'welcome#index'
 # senior routes
 
   get '/care_groups/:care_group_id/seniors/new', to: 'seniors#new', as: 'new_care_group_senior'
-  get '/care_groups/:care_group_id/seniors', to: 'seniors#index', as: 'all_care_group_seniors'
+  get '/care_groups/:care_group_id/seniors', to: 'care_groups#show_seniors', as: 'all_care_group_seniors'
   post '/care_groups/:care_group_id/seniors', to: 'seniors#create'
   get '/care_groups/:care_group_id/seniors/:id', to: 'seniors#show', as: 'care_group_senior'
   get '/care_groups/:care_group_id/seniors/:id/edit', to: 'seniors#edit', as: 'edit_care_group_senior'
@@ -58,14 +58,8 @@ root to: 'welcome#index'
     #                             PUT    /seniors/:senior_id/visits/:id(.:format)               visits#update
 
 delete '/seniors/:senior_id/visits/:id', to: 'visits#destroy', as: 'delete_visit'
-
 post '/seniors/:senior_id/visits', to: 'visits#create', as: 'new_senior_visit'
-
 get '/seniors/:senior_id/visits/:id', to: 'visits#show', as: 'senior_visit'
-
-
-
-
 
 
 end

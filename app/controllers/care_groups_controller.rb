@@ -22,6 +22,10 @@ class CareGroupsController < ApplicationController
     @seniors = @care_group.seniors.all
   end
 
+  def show_seniors
+    @care_group = CareGroup.find_by_id(params[:care_group_id])
+  end
+
   def edit
     @care_group = current_care_group
   end

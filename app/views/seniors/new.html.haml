@@ -7,7 +7,7 @@
       .col-md-12.text-danger
         = flash[:error]
 
-        = form_for :senior, url: '/care_groups/:id/seniors' do |f|
+        = form_for :senior, url: '/care_groups/:care_group_id/seniors' do |f|
           .form-group
             = f.text_field :name, class: "form-control", placeholder: "Name"
           .form-group

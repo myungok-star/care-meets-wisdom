@@ -1,19 +1,24 @@
 class SeniorsController < ApplicationController
- def index
-   @seniors = Senior.all
-   @care_group = current_care_group
-   @current_care_group_id = params[:care_group_id]
- end
+ # def index
+ #   @seniors = Senior.all
+ #   @care_group = current_care_group
+ #   @current_care_group_id = params[:care_group_id]
+ # end
  def new
    @senior = Senior.new
  end
 
   def create
-    @senior = Senior.new(senior_params)
-    @senior.care_group = current_care_group
     @care_group = current_care_group
+    @senior = Senior.new(senior_params)
+    @senior.care_group_id = current_care_group.id
+
+     @senior.save
      if @senior.save
+       
        redirect_to all_care_group_seniors_path(current_care_group)
+     else
+       flash[:error] = @senior.errors.full_messages.join(", ")
      end
   end
 
