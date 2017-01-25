@@ -15,7 +15,7 @@ class SeniorsController < ApplicationController
 
      @senior.save
      if @senior.save
-       
+
        redirect_to all_care_group_seniors_path(current_care_group)
      else
        flash[:error] = @senior.errors.full_messages.join(", ")
@@ -32,7 +32,9 @@ class SeniorsController < ApplicationController
     @volunteer = current_volunteer
     @care_group = current_care_group
     @current_care_group_id = params[:care_group_id]
+
     @senior = Senior.find_by_id(params[:id])
+
   end
 
   def update

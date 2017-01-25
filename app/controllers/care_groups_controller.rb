@@ -19,7 +19,6 @@ class CareGroupsController < ApplicationController
 
   def show
     @care_group = CareGroup.find_by_id(params[:id])
-    # @visit= Visit.find_by_id(params[:id])
   end
 
   def show_seniors
@@ -48,7 +47,7 @@ class CareGroupsController < ApplicationController
   private
 
   def care_group_params
-    params.require(:care_group).permit(:name, :email, :password, :password_confirmation, :photo, :location, :about)
+    params.require(:care_group).permit(:name, :email, :password, :password_confirmation, :photo, :location, :about, :senior_id)
   end
 
 end

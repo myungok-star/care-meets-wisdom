@@ -32,8 +32,9 @@
       </div>
          <div class="card-action center-align">
 
-
+ <% if current_care_group == @care_group %>
           <%= link_to "Edit Profile", edit_care_group_path(@care_group), class: "waves-effect waves-light btn center-align" %>
+          <% end %>
          </div>
         </div>
        </div>
@@ -45,7 +46,7 @@
     <%= link_to "View all senior memebers of this group", all_care_group_seniors_path(@care_group), class: "waves-effect waves-light btn" %>
   </div>
 </div>
-
+  <% if current_care_group == @care_group %>
 <div class="page-header">
         <h3>Visit Pending My Approval</h3></div>
 
@@ -60,3 +61,18 @@
             <% end %>
           <% end %>
         </div>
+      </div>
+
+Seniors who are currently meeting their volunteers
+
+      <div class="media-body">
+						<% @care_group.seniors.each do |senior| %>
+						<% senior.visits.each do |visit| %>
+						<% if visit.approved? && visit.visit_complete == false %>
+							<h4><%= visit.senior.name %> with <%= visit.volunteer.name %></h4>
+							<%= button_to "Complete Visit", complete_visit_path({senior_id: visit.senior, id: visit}), method: :patch, class:"btn btn-primary" %>
+							<% end %>
+							<% end %>
+							<% end %>
+					</div>
+          <% end %>
