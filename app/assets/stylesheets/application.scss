@@ -19,6 +19,11 @@
  $secondary-color: color("yellow", "base") !default;*/
  @import "materialize";
 
-body {
-  background-color: #ffefe5;
-}
+ // body {
+ //   background-color: #ffefe5;
+ // }
+
+ .parallax img {
+     @media #{$small-and-down} { max-width: 200%; }
+     @media #{$medium-and-up} { width: 100%; }
+ }

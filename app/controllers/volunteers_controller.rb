@@ -7,6 +7,7 @@ class VolunteersController < ApplicationController
   def create
     @volunteer = Volunteer.new(volunteer_params)
    if @volunteer.save
+     VolunteerMailer.welcome_email(@volunteer).deliver_now
      session[:volunteer_id] = @volunteer.id
      redirect_to '/volunteers/login'
    else
