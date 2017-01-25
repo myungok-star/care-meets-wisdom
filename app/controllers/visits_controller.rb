@@ -13,7 +13,7 @@ def create
 end
 
 def show
-    @visit= Visit.find_by_id(params[:id])
+  @visit= Visit.find_by_id(params[:id])
 end
 
 def approve
@@ -31,7 +31,12 @@ def destroy
   @volunteer = Volunteer.find(@visit.volunteer_id)
   # @visit.destroy
     if @visit.destroy
-      redirect_to volunteer_path(current_volunteer)
+      if current_volunteer
+        redirect_to volunteer_path(current_volunteer)
+
+    elsif current_care_group
+      redirect_to care_group_path(current_care_group)
+        end
     end
 end
 

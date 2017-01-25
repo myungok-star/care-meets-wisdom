@@ -19,7 +19,7 @@ class CareGroupsController < ApplicationController
 
   def show
     @care_group = CareGroup.find_by_id(params[:id])
-    @seniors = @care_group.seniors.all
+    # @visit= Visit.find_by_id(params[:id])
   end
 
   def show_seniors
