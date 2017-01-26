@@ -24,7 +24,7 @@ root to: 'welcome#index'
 # end of signup and login routes
 
 # volunteer routes
-  get '/volunteers', to: 'volunteers#index', as: 'all_volunteers'
+
   get '/volunteers/:id', to: 'volunteers#show', as: 'volunteer'
   get '/volunteers/:id/edit', to: 'volunteers#edit', as: 'edit_volunteer'
   patch '/volunteers/:id', to: 'volunteers#update'

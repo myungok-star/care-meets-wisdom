@@ -78,8 +78,9 @@
 
 </div>
 <%- flash.each do |name, msg| -%>
-
+<div class="teal lighten-5 center-align">
      <strong><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></strong>
+   </div>
 
  <%- end -%>
     <%= yield %>

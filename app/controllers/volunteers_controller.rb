@@ -7,10 +7,13 @@ class VolunteersController < ApplicationController
   def create
     @volunteer = Volunteer.new(volunteer_params)
    if @volunteer.save
+     flash[:notice] = "Welcome to the Welcom Wisdom Site!"
      VolunteerMailer.welcome_email(@volunteer).deliver_now
      session[:volunteer_id] = @volunteer.id
      redirect_to '/volunteers/login'
    else
+     flash[:notice] =
+     @volunteer.errors.full_messages.join(", ")
      redirect_to '/volunteers/signup'
    end
   end
@@ -27,16 +30,11 @@ class VolunteersController < ApplicationController
   def update
     @volunteer = Volunteer.find(session[:volunteer_id])
     if @volunteer.update_attributes(volunteer_params)
+      flash[:notice] = "Your profile information has been updated."
       redirect_to volunteer_path(@volunteer)
     else
       render 'edit'
     end
-  end
-
-  def destroy
-    User.find(session[:volunteer_id]).destroy
-    session[:volunteer_id] = nil
-    redirect_to edit_volunteer_path(@volunteer)
   end
 
 

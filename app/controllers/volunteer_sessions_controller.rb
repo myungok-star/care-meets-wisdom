@@ -16,6 +16,7 @@ class VolunteerSessionsController < ApplicationController
       redirect_to volunteer_path(@volunteer)
       else
    # If user's login doesn't work, send them back to the login form.
+      flash[:notice] = "Incorrect email or password"
       redirect_to '/volunteers/login'
       end
     end

@@ -10,6 +10,8 @@ def create
   @care_group = @visit.senior.care_group
   @volunteer = @visit.volunteer
   @visit.save
+  flash[:notice] = "Your visit request has been sent to the care group"
+
   redirect_to volunteer_path(current_volunteer)
 end
 
@@ -23,6 +25,7 @@ def approve
  @care_group = current_care_group
  @visit.update_attributes(approved: true, pending: false)
  if @visit.save
+   flash[:notice] = "Approved!"
    redirect_to care_group_path(current_care_group)
 end
 end
@@ -33,6 +36,7 @@ def complete
 
   @visit.update_attributes(visit_complete: true, approved: false)
   if @visit.save
+    flash[:notice] = "Completed!"
     redirect_to care_group_path(current_care_group)
   end
 end
@@ -44,9 +48,11 @@ def destroy
   # @visit.destroy
     if @visit.destroy
       if current_volunteer
+        flash[:notice] = "Your visit request has been successfully cancelled!"
         redirect_to volunteer_path(current_volunteer)
 
     elsif current_care_group
+      flash[:notice] = "This visit has been completed!"
       redirect_to care_group_path(current_care_group)
         end
     end

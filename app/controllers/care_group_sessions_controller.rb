@@ -13,7 +13,7 @@ class CareGroupSessionsController < ApplicationController
       redirect_to care_group_path(@care_group)
     else
     # If user's login doesn't work, send them back to the login form.
-      flash[:error] = "Incorrect email or password"
+      flash[:notice] = "Incorrect email or password"
       redirect_to '/care_groups/login'
     end
   end
