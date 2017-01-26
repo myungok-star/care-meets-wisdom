@@ -1,7 +1,7 @@
 # Welcome Wisdom App
 
 ## Description
-* Welcome Wisdom App is a national network of non-profit volunteer-based organizations committed to relieving isolation and loneliness among the elderly. When a volunteer and a senior have a matching interest, the volunteer will request a visit to the senior's care group to arrange the meeting.
+* Welcome Wisdom App is a national network of non-profit volunteer-based organizations committed to relieving isolation and loneliness among the elderly. Volunteers and seniors will build friendship through visits and activities.
 
 ## Technologies
 * Ruby on Rails
