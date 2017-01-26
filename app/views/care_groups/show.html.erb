@@ -37,15 +37,13 @@
 
 
 
-
-
 <div class="col s6">
   <div class="container center-align" style="margin-bottom: 40px; margin-top: 20px">
 <%= link_to "View all senior members", all_care_group_seniors_path(@care_group), class: "waves-effect waves-light btn" %>
 </div>
 
-  <% if current_care_group == @care_group %>
 
+  <% if current_care_group == @care_group %>
         <h4>Pending Visit Requests</h4>
 <div class="row">
           <% @care_group.seniors.each do |senior| %>
@@ -64,33 +62,12 @@
     </div>
     <% end %>
   <% end %>
-<% end %>
+  <% end %>
 </div>
 
 <hr>
 
 <h4>Current Visits </h4>
-<!-- <div class="row">
-						<% @care_group.seniors.each do |senior| %>
-						<% senior.visits.each do |visit| %>
-						<% if visit.approved? && visit.visit_complete == false %>
-            <div class="col s12 m10">
-              <div class="card white">
-                <div class="card-content black-text center-align">
-							<span class="card-title"><%= visit.senior.name %> with Volunteer <%= visit.volunteer.name %></span>
-              <div class="center-aligh">
-							<%= button_to "Complete This Visit", complete_visit_path({senior_id: visit.senior, id: visit}), method: :patch, class:"btn btn-primary" %>
-            </div>
-
-					</div>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-      <% end %>
-
-        </div>
-<% end %> -->
 
 
 <table>
@@ -116,7 +93,7 @@
     <% end %>
     <% end %>
   </table>
+
+<% end %>
 </div>
-
-
 </div>
