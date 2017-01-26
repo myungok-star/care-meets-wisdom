@@ -8,6 +8,7 @@
 * Postgres SQL
 * Heroku
 * Materialize
+* Action Mailer
 
 ## Heroku
  * https://intense-chamber-58687.herokuapp.com/
