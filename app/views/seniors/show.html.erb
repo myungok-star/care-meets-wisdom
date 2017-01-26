@@ -1,7 +1,4 @@
-
-  <%= @senior.name %>
-  <%= @senior.interests %>
-
+<div class="center-align" style="margin-top: 30px;">
 
  <% if current_volunteer == nil %>
   <%= link_to "Edit", edit_care_group_senior_path(@senior), class: "waves-effect waves-light btn"  %>
@@ -13,3 +10,21 @@
  <% if current_care_group == nil %>
  <%= link_to "Request to visit this senior", new_senior_visit_path(@senior), method: :post, class: "waves-effect waves-light btn" %>
  <% end %>
+
+</div>
+
+<div class="row center-align container" style="width: 350px; height: auto; margin-top: 25px">
+  <!-- <div class="col s12 m7"> -->
+    <div class="card">
+      <div class="card-image">
+        <img src="https://share.okdothis.com/assets/default-avatar-c246f74ff56d382424ac2c750e40b0a6.png?w=64&h=64" style="width: 350px; height: 350px">
+      </div>
+      <div class="card-content">
+        <p>About <%= @senior.name %></p>
+      </div>
+      <div class="card-action">
+        <%= @senior.name %> is interested in <%= @senior.interests %>.
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

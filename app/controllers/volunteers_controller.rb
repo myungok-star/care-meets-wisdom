@@ -28,7 +28,9 @@ class VolunteersController < ApplicationController
   end
 
   def update
-    @volunteer = Volunteer.find(session[:volunteer_id])
+    # @volunteer = Volunteer.find(session[:volunteer_id])
+    @volunteer = Volunteer.find_by_id(params[:id])
+    puts volunteer_params
     if @volunteer.update_attributes(volunteer_params)
       flash[:notice] = "Your profile information has been updated."
       redirect_to volunteer_path(@volunteer)
@@ -41,7 +43,7 @@ class VolunteersController < ApplicationController
 private
 
   def volunteer_params
-    params.require(:volunteer).permit(:name, :email, :password, :password_confirmation, :avatar)
+    params.require(:volunteer).permit(:name, :email, :password, :password_confirmation, :avatar, :about, :location, :contact)
   end
 
 end

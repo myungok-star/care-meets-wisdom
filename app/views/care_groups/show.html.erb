@@ -1,78 +1,122 @@
 
 
-  <div class="row col s12">
+  <div class="row col s12" style="margin-top: 35px;">
      <div class="col s5">
        <div class="container">
-       <div class="card indigo lighten-3">
+       <div class="card blue-grey lighten-2 large">
           <div class="card-content white-text">
    <h2 class="center-align" style="margin-top: 0;"><%= @care_group.name %></h2>
-  <div class= "row">
-   <div class="container profile_image">
-     <img src="<%= @care_group.photo.url%>" style="width: 100%; height: 100%;">
+  <div class= "row center-align">
+   <div class="container profile_image center-align">
+     <img src="<%= @care_group.photo.url%>" style="width: 200px; height: 200px;">
          </div>
-         <div class="container location">
-           <span class="black-text">
-             Location: <%= @care_group.location %>
-          </span>
+        </div>
+    </div>
+         <div class="row center-align">
 
-         </div>
-  </div>
-         <div class="row">
-        <div class="col s12 m12">
 
-          <div class="card-panel grey lighten-5">
 
-            <span class="black-text">
-              About:
-            <%= @care_group.about %>
-            </span>
+            <span class="white-text">
+              About: <% @care_group.about %> <br>
+                Location: <%= @care_group.location %>
+             </span>
+
 
           </div>
-        </div>
-      </div>
-         <div class="card-action center-align">
+
+
+         <div class="center-align">
 
  <% if current_care_group == @care_group %>
           <%= link_to "Edit Profile", edit_care_group_path(@care_group), class: "waves-effect waves-light btn center-align" %>
           <% end %>
+</div>
          </div>
         </div>
        </div>
-     </div>
-   </div>
+
+
+
+
 
 <div class="col s6">
-  <div class="col s12 offset-s3">
-    <%= link_to "View all senior memebers of this group", all_care_group_seniors_path(@care_group), class: "waves-effect waves-light btn" %>
-  </div>
+  <div class="container center-align" style="margin-bottom: 40px; margin-top: 20px">
+<%= link_to "View all senior members", all_care_group_seniors_path(@care_group), class: "waves-effect waves-light btn" %>
 </div>
-  <% if current_care_group == @care_group %>
-<div class="page-header">
-        <h3>Visit Pending My Approval</h3></div>
 
-    <div class="media">
-        <div class="media-body">
+  <% if current_care_group == @care_group %>
+
+        <h4>Pending Visit Requests</h4>
+<div class="row">
           <% @care_group.seniors.each do |senior| %>
           <% senior.visits.each do |visit| %>
           <% if visit.pending? %>
-          <p> <%= link_to visit.volunteer.name, volunteer_path(visit.volunteer) %> wants to visit <%= visit.senior.name %> </p>
-          <%= link_to "Accept or Later", senior_visit_path(senior, visit) %>
-              <% end %>
-            <% end %>
-          <% end %>
+          <div class="col s12 m10">
+            <div class="card white">
+              <div class="card-content black-text center-align">
+          <span class="card-title"> <%= link_to visit.volunteer.name, volunteer_path(visit.volunteer) %> wants to visit <%= visit.senior.name %> </span>
+<div class="center-align">
+          <%= link_to "View", senior_visit_path(senior, visit), class: "waves-effect waves-light orange lighten-1 btn" %>
+        </div>
+
         </div>
       </div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
 
-Seniors who are currently meeting their volunteers
+<hr>
 
-      <div class="media-body">
+<h4>Current Visits </h4>
+<!-- <div class="row">
 						<% @care_group.seniors.each do |senior| %>
 						<% senior.visits.each do |visit| %>
 						<% if visit.approved? && visit.visit_complete == false %>
-							<h4><%= visit.senior.name %> with <%= visit.volunteer.name %></h4>
-							<%= button_to "Complete Visit", complete_visit_path({senior_id: visit.senior, id: visit}), method: :patch, class:"btn btn-primary" %>
-							<% end %>
-							<% end %>
-							<% end %>
+            <div class="col s12 m10">
+              <div class="card white">
+                <div class="card-content black-text center-align">
+							<span class="card-title"><%= visit.senior.name %> with Volunteer <%= visit.volunteer.name %></span>
+              <div class="center-aligh">
+							<%= button_to "Complete This Visit", complete_visit_path({senior_id: visit.senior, id: visit}), method: :patch, class:"btn btn-primary" %>
+            </div>
+
 					</div>
-          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+
+        </div>
+<% end %> -->
+
+
+<table>
+    <thead>
+      <tr>
+          <th data-field="id">Senior Name</th>
+          <th data-field="name">Volunteer Name</th>
+          <th data-field="price">Status Update</th>
+      </tr>
+    </thead>
+    <% @care_group.seniors.each do |senior| %>
+    <% senior.visits.each do |visit| %>
+    <% if visit.approved? && visit.visit_complete == false %>
+    <tbody>
+      <tr>
+        <td><%= visit.senior.name %> </td>
+        <td><%= visit.volunteer.name %> </td>
+        <td><%= button_to "Complete this visit", complete_visit_path({senior_id: visit.senior, id: visit}), method: :patch, class:"btn btn-primary" %></td>
+      </tr>
+
+    </tbody>
+    <% end %>
+    <% end %>
+    <% end %>
+  </table>
+</div>
+
+
+</div>

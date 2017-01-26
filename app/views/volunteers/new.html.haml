@@ -1,9 +1,9 @@
 
 .container.center-align
   .row
-    .col-md-6.col-md-offset-3
+    .col-s12-m6.offset-m3
       %br
-      %h1 Sign up as Volunteer!
+      %h2 Sign up as Volunteer!
       %br
       .col-md-12.text-danger
         = flash[:error]
@@ -17,7 +17,7 @@
             = f.password_field :password, class: "form-control", placeholder: "Password"
           .form-group
             = f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password"
-            = f.hidden_field :image, :value => "http://i.imgur.com/en3Tpt6.png"
+            = f.hidden_field :avatar, :value => "https://share.okdothis.com/assets/default-avatar-c246f74ff56d382424ac2c750e40b0a6.png?w=64&h=64"
           .form-group
             %br
             = f.submit "Sign Up", class: "btn btn-success"

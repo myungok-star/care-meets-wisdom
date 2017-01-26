@@ -27,7 +27,7 @@ root to: 'welcome#index'
 
   get '/volunteers/:id', to: 'volunteers#show', as: 'volunteer'
   get '/volunteers/:id/edit', to: 'volunteers#edit', as: 'edit_volunteer'
-  patch '/volunteers/:id', to: 'volunteers#update'
+  patch '/volunteers/:id', to: 'volunteers#update', as: 'update_volunteer'
 
 
 # caregroup routes

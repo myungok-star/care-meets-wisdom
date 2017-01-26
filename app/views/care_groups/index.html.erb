@@ -1,14 +1,13 @@
 
-Search by:
-
+<div class="col m8 center-align container" style="margin-top: 30px;">
 <ul class="collection">
   <% @care_groups.each do |care_group| %>
-    <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="care_group_name"><%= link_to care_group.name, care_group_path(care_group) %></span>
-      <p>Location: <%= care_group.location %> <br>
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    <li class="collection-item">
+
+      <span class="care_group_name"><h4><%= link_to care_group.name, care_group_path(care_group) %></h4></span>
+      <h5>Location: <%= care_group.location %> </h5><br>
+
     </li>
     <% end %>
   </ul>
+</div>

@@ -21,7 +21,7 @@
             <%= link_to 'My Profile', volunteer_path(current_volunteer) %>
         </li>
         <li>
-            <%= link_to 'View all care groups', all_care_groups_path %>
+            <%= link_to 'Care Groups', all_care_groups_path %>
         </li>
         <li>
             <%= link_to 'Log Out', destroy_volunteer_sessions_path, :method => :delete %>
@@ -78,7 +78,7 @@
 
 </div>
 <%- flash.each do |name, msg| -%>
-<div class="teal lighten-5 center-align">
+<div class="white center-align">
      <strong><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></strong>
    </div>
 
