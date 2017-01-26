@@ -4,6 +4,8 @@ class SeniorsController < ApplicationController
  #   @care_group = current_care_group
  #   @current_care_group_id = params[:care_group_id]
  # end
+
+autocomplete :seniors, :interests, :full => true
  def new
    @senior = Senior.new
  end
@@ -19,6 +21,7 @@ class SeniorsController < ApplicationController
        flash[:error] = @senior.errors.full_messages.join(", ")
      end
   end
+
 
   def edit
     @senior = Senior.find_by_id(params[:id])

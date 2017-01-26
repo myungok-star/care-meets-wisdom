@@ -63,4 +63,12 @@ get '/seniors/:senior_id/visits/:id', to: 'visits#show', as: 'senior_visit'
 put '/seniors/:senior_id/visits/:id', to: 'visits#approve', as: 'approve_visit'
 patch '/seniors/:senior_id/visits/:id', to: 'visits#complete', as: 'complete_visit'
 
+resources :care_groups do
+    resources :seniors do
+  get :autocomplete_senior_interests, :on => :collection
+end
+end
+
+# autocomplete_senior_interests_care_group_seniors GET    /care_groups/:care_group_id/seniors/autocomplete_senior_interests(.:format) seniors#autocomplete_senior_interests
+
 end

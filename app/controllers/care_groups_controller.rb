@@ -1,5 +1,7 @@
 class CareGroupsController < ApplicationController
 
+autocomplete :senior, :interests, :full => true
+
   def index
     @care_groups = CareGroup.all
   end
@@ -26,6 +28,7 @@ class CareGroupsController < ApplicationController
 
   def show_seniors
     @care_group = CareGroup.find_by_id(params[:care_group_id])
+    @senior = @care_group.seniors
   end
 
   def edit

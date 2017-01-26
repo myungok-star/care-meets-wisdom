@@ -39,6 +39,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'materialize-sass'
 gem 'jquery-turbolinks'
+gem 'rails4-autocomplete'
+gem 'rails-jquery-autocomplete'
+
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-ui-rails'
 
 
 group :development, :test do

@@ -4,6 +4,17 @@
 <%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
 <% end %>
 
+
+<!-- <% form_tag '/care_groups/:care_group_id/seniors/autocomplete_senior_interests' do %>
+          <div class="form-group">
+            <%= text_field_tag :interests, placeholder: "Find interests"%>
+          <br>
+            <%= submit_tag "Search", class: "waves-effect waves-light btn" %>
+
+          </div>
+            <% end %> -->
+
+
 <div class="row">
             <% @care_group.seniors.each do |senior| %>
             <div class="col s12 center-align">
