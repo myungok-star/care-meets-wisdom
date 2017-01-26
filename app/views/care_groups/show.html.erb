@@ -3,7 +3,7 @@
   <div class="row col s12" style="margin-top: 35px;">
      <div class="col s5">
        <div class="container">
-       <div class="card blue-grey lighten-2 large" style="padding-bottom: 30px;">
+       <div class="card blue-grey lighten-2">
           <div class="card-content white-text">
    <h2 class="center-align" style="margin-top: 0;"><%= @care_group.name %></h2>
   <div class= "row center-align">
@@ -12,29 +12,28 @@
          </div>
         </div>
     </div>
-         <div class="row center-align">
+         <div class="row center-align" style="padding-bottom: 20px;">
 
 
-
+<div class='container'>
             <span class="white-text">
-              About: <% @care_group.about %> <br>
+              About: <%= @care_group.about %> <br>
                 Location: <%= @care_group.location %>
-             </span>
+             </span><br>
+
+<br>
 
 
-          </div>
-
-
-         <div class="center-align">
 
  <% if current_care_group == @care_group %>
           <%= link_to "Edit Profile", edit_care_group_path(@care_group), class: "waves-effect waves-light btn center-align" %>
           <% end %>
-</div>
+
          </div>
         </div>
        </div>
-
+</div>
+</div>
 
 
 <div class="col s6">
