@@ -4,7 +4,7 @@ class CareGroup < ApplicationRecord
 
  validates :name, presence: true
  validates :email, presence: true, uniqueness: true, :format => /@/
- validates :password, length: { minimum: 6 }
+ validates :password, length: { minimum: 6 }, on: :create
 
   has_many :seniors, dependent: :destroy
 

@@ -7,7 +7,7 @@
 </div>
 <div class="container">
   <div class="row">
-      <%= form_for :care_group, url: '/care_groups/:id', html: { multipart: true, class: "col s12 m6 offset-m3"}, method: :patch do |f| %>
+      <%= form_for @care_group, url: "/care_groups/#{@care_group.id}", html: { multipart: true, class: "col s12 m6 offset-m3"}, method: :patch do |f| %>
         <b>Name: </b><%= f.text_field :name, required: true %>
         <b>Company Photo: </b><%= f.file_field :photo %>
         <b>About: </b><%= f.text_area :about %>
