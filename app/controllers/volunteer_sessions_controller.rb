@@ -4,8 +4,10 @@ class VolunteerSessionsController < ApplicationController
   end
 
   def new
+    # TODO: fix indentation
     end
 
+    # TODO: fix indentation
     def create
       @volunteer = Volunteer.find_by_email(params[:email])
    # If the user exists AND the password entered is correct.

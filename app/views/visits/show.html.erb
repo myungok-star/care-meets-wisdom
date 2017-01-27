@@ -2,6 +2,7 @@
 
 	<div class="container">
 
+<!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer or current_care_group to an instance variable and access that from here. -->
 
   <% if current_care_group != nil && current_care_group == @visit.senior.care_group %>
 			<div class="row">
@@ -17,5 +18,6 @@
 			</div>
 		</div>
 	</div>
+	<!-- TODO: Indentation!!! -->
 					<% end %>
 	    </div>
