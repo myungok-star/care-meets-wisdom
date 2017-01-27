@@ -1,13 +1,13 @@
-
 <div class="col m8 center-align container" style="margin-top: 30px;">
-<ul class="collection">
-  <% @care_groups.each do |care_group| %>
-    <li class="collection-item">
-
-      <span class="care_group_name"><h4><%= link_to care_group.name, care_group_path(care_group) %></h4></span>
-      <h5>Location: <%= care_group.location %> </h5><br>
-
-    </li>
-    <% end %>
-  </ul>
+    <ul class="collection">
+        <% @care_groups.each do |care_group| %>
+        <li class="collection-item">
+            <span class="care_group_name">
+                <h4><%= link_to care_group.name, care_group_path(care_group) %></h4>
+            </span>
+            <h5>Location: <%= care_group.location %> </h5>
+            <br>
+        </li>
+        <% end %>
+    </ul>
 </div>

@@ -1,20 +1,17 @@
 <div class="center-align" style="margin-top: 30px;">
-<%= link_to "Back", care_group_path(params[:care_group_id]), class: "waves-effect waves-light btn" %>
-<% if current_care_group == CareGroup.find(params[:care_group_id]) %>
-<%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
-<% end %>
+    <%= link_to "Back", care_group_path(params[:care_group_id]), class: "waves-effect waves-light btn" %>
+    <% if current_care_group == CareGroup.find(params[:care_group_id]) %>
+    <%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
+    <% end %>
 </div>
 
-
-
 <div class="col m8 container" style="margin-top: 30px;">
-  <ul class="collection">
-            <% @care_group.seniors.each do |senior| %>
-            <li class="collection-item">
-                <h5 class="name"><%= link_to senior.name, care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %></h5>
-                <!-- <h5 class="location"><%= senior.location %></h5> -->
-                <p>Interests: <%= senior.interests %><p>
-</li>
-<% end %>
-</ul>
-        </div>
+    <ul class="collection">
+        <% @care_group.seniors.each do |senior| %>
+        <li class="collection-item">
+            <h5 class="name"><%= link_to senior.name, care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %></h5>
+            <p>Interests:<%= senior.interests %><p>
+        </li>
+        <% end %>
+    </ul>
+</div>

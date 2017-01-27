@@ -1,65 +1,51 @@
-
-
-  <div class="row col s12" style="margin-top: 35px;">
-     <div class="col s5">
-       <div class="container">
-       <div class="card orange lighten-2">
-          <div class="card-content white-text">
-   <h2 class="center-align" style="margin-top: 0;"><%= @volunteer.name %></h2>
-  <div class= "row center-align">
-   <div class="container profile_image center-align">
-     <img src="<%= @volunteer.avatar.url%>" style="width: 200px; height: 200px;">
-         </div>
-  </div>
-</div>
-<div class="row center-align" style="padding-bottom: 20px;">
-
-<div class='container'>
-   <span class="white-text">
-     About: <%= @volunteer.about %> <br>
-       Location: <%= @volunteer.location %>
-   </span><br>
-<br>
-   <%= link_to "Edit Profile", edit_volunteer_path(@volunteer), class: "waves-effect waves-light btn center-align" %>
-
-</div>
-</div>
-
-
-
-
-
-        </div>
-       </div>
-     </div>
-
-
-
-<% if current_care_group == nil %>
-<div class="col s7">
-      <h4>My Pending Visit Requests</h4>
-      <div class="row">
-        <% @volunteer.visits.each do |visit| %>
-        <% if visit.pending? %>
-            <div class="col s12 m10">
-              <div class="card white">
-                <div class="card-content white-text center-align">
-                  <span class="card-title"> <%= link_to visit.senior.name, care_group_senior_path(visit.senior) %></span>
-
-                  <div class="center-align">
-
-                  <%= link_to "Cancel This Request",  delete_visit_path({senior_id: visit.senior, id: visit}), method: :delete, class: "waves-effect waves-light orange lighten-1 btn" %>
+<div class="row col s12" style="margin-top: 35px;">
+    <div class="col s5">
+        <div class="container">
+            <div class="card orange lighten-2">
+                <div class="card-content white-text">
+                    <h2 class="center-align" style="margin-top: 0;"><%= @volunteer.name %></h2>
+                    <div class="row center-align">
+                        <div class="container profile_image center-align">
+                            <img src="<%= @volunteer.avatar.url%>" style="width: 200px; height: 200px;">
+                        </div>
+                    </div>
                 </div>
-
+                <div class="row center-align" style="padding-bottom: 20px;">
+                    <div class='container'>
+                        <span class="white-text">
+                            About: <%= @volunteer.about %>
+                            <br>
+                            Location: <%= @volunteer.location %>
+                        </span>
+                        <br>
+                        <br>
+                        <%= link_to "Edit Profile", edit_volunteer_path(@volunteer), class: "waves-effect waves-light btn center-align" %>
+                    </div>
                 </div>
-
-              </div>
             </div>
-              <% end %>
-              <% end %>
-          </div>
+        </div>
+    </div>
 
-      </div>
-<% end %>
-      </div>
-      </div>
+    <% if current_care_group == nil %>
+    <div class="col s7">
+        <h4>My Pending Visit Requests</h4>
+        <div class="row">
+            <% @volunteer.visits.each do |visit| %>
+            <% if visit.pending? %>
+            <div class="col s12 m10">
+                <div class="card white">
+                    <div class="card-content white-text center-align">
+                        <span class="card-title">
+                            <%= link_to visit.senior.name, care_group_senior_path(visit.senior) %></span>
+                        <div class="center-align">
+                            <%= link_to "Cancel This Request",  delete_visit_path({senior_id: visit.senior, id: visit}), method: :delete, class: "waves-effect waves-light orange lighten-1 btn" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>

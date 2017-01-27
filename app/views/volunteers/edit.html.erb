@@ -1,20 +1,25 @@
 <div class="container">
-  <div class="row">
-    <div class="col s12 center-align">
-      <h2>Update!</h2>
+    <div class="row">
+        <div class="col s12 center-align">
+            <h2>Update!</h2>
+        </div>
     </div>
-  </div>
 </div>
 <div class="container">
-  <div class="row center-align">
-      <%= form_for @volunteer, url: "/volunteers/#{@volunteer.id}", html: { multipart: true, class: "col s12 m6 offset-m3"}, method: :patch do |f| %>
-        <b>Name: </b><%= f.text_field :name, required: true %>
-        <b>Profile Photo: </b><br><%= f.file_field :avatar %><br>
-        <b>About: </b><%= f.text_area :about %>
-        <b>Location: </b><%= f.text_area :location %>
-        <b>Contact: </b><%= f.text_area :contact %>
+    <div class="row center-align">
+        <%= form_for @volunteer, url: "/volunteers/#{@volunteer.id}", html: { multipart: true, class: "col s12 m6 offset-m3"}, method: :patch do |f| %>
+        <b>Name:
+        </b><%= f.text_field :name, required: true %>
+        <b>Profile Photo:
+        </b><br><%= f.file_field :avatar %><br>
+        <b>About:
+        </b><%= f.text_area :about %>
+        <b>Location:
+        </b><%= f.text_area :location %>
+        <b>Contact:
+        </b><%= f.text_area :contact %>
         <%= f.submit 'Update', class: 'btn waves-effect waves-light' %>
-      <% end %>
+        <% end %>
     </div>
-  </div>
+</div>
 </div>
