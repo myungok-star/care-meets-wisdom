@@ -19,6 +19,7 @@
             = f.password_field :password, class: "form-control", placeholder: "Password"
           .form-group
             = f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password"
+            -# TODO: Do not use other site's assets for your own site. This costs them money and doesn't look good on your end.  Host your own content in this site.
             = f.hidden_field :photo, :value => "https://share.okdothis.com/assets/default-avatar-c246f74ff56d382424ac2c750e40b0a6.png?w=64&h=64"
           .form-group
             %br

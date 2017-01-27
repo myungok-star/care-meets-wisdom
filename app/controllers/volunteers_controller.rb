@@ -6,6 +6,7 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
+   # TODO: fix indentation
    if @volunteer.save
      flash[:notice] = "Welcome to the Welcom Wisdom Site!"
      VolunteerMailer.welcome_email(@volunteer).deliver_now
@@ -28,6 +29,7 @@ class VolunteersController < ApplicationController
   end
 
   def update
+    # TODO: Remove unused code from production versions
     # @volunteer = Volunteer.find(session[:volunteer_id])
     @volunteer = Volunteer.find_by_id(params[:id])
     puts volunteer_params

@@ -5,6 +5,7 @@ class CareGroupsController < ApplicationController
   end
 
   def new
+    # TODO: I'm trying to go to care_groups/sign_up but It's rerouting me to care_groups/:id (show). This needs to be fixed. Care groups can't sign up at all.
   end
 
   def create

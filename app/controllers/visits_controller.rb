@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
 
 def create
+  # TODO: To make this smaller you could assign default values to new visit models from your db.
   @visit = Visit.new
   @visit.senior = Senior.find_by_id(params[:senior_id])
   @visit.volunteer = current_volunteer
@@ -27,6 +28,7 @@ def approve
  if @visit.save
    flash[:notice] = "Approved!"
    redirect_to care_group_path(current_care_group)
+# TODO: fix indentation
 end
 end
 
@@ -50,10 +52,11 @@ def destroy
       if current_volunteer
         flash[:notice] = "Your visit request has been successfully cancelled!"
         redirect_to volunteer_path(current_volunteer)
-
+    # TODO: fix indentation
     elsif current_care_group
       flash[:notice] = "This visit has been completed!"
       redirect_to care_group_path(current_care_group)
+      # TODO: fix indentation
         end
     end
 end

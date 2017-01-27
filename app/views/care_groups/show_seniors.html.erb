@@ -1,5 +1,8 @@
+
 <div class="center-align" style="margin-top: 30px;">
+<!--TODO: INDENTATION!  -->
 <%= link_to "Back", care_group_path(params[:care_group_id]), class: "waves-effect waves-light btn" %>
+<!-- TODO: NEVER call your db inside your view.  This is why we have controllers.  -->
 <% if current_care_group == CareGroup.find(params[:care_group_id]) %>
 <%= link_to "Add a member", new_care_group_senior_path, class: "waves-effect waves-light btn" %>
 <% end %>
@@ -14,7 +17,10 @@
                 <h5 class="name"><%= link_to senior.name, care_group_senior_path({care_group_id: params[:care_group_id], id: senior}) %></h5>
                 <!-- <h5 class="location"><%= senior.location %></h5> -->
                 <p>Interests: <%= senior.interests %><p>
+<!--TODO: INDENTATION!  -->
+
 </li>
 <% end %>
 </ul>
+        <!--TODO: INDENTATION!  -->
         </div>

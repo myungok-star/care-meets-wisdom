@@ -1,4 +1,5 @@
 class SeniorsController < ApplicationController
+  # TODO: Remove unused code
  # def index
  #   @seniors = Senior.all
  #   @care_group = current_care_group
@@ -9,6 +10,7 @@ class SeniorsController < ApplicationController
  end
 
   def create
+    
     @care_group = current_care_group
     @senior = Senior.new(senior_params)
     @senior.care_group_id = current_care_group.id
@@ -50,6 +52,7 @@ class SeniorsController < ApplicationController
   end
 
   def destroy
+    #TODO: Do you really need @care_group and @current_care_group_id?
     @care_group = current_care_group
     @current_care_group_id = params[:care_group_id]
     @senior = Senior.find_by_id(params[:id])
@@ -62,5 +65,6 @@ class SeniorsController < ApplicationController
   private
   def senior_params
     params.require(:senior).permit(:name, :location, :about, :interests, :care_group_id)
+# TODO: fix indentation
 end
 end

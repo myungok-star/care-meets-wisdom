@@ -11,9 +11,11 @@
     </head>
 
     <body>
+      <!-- TODO: INDENTATION !!!! -->
 
         <nav>
   <div class="nav-wrapper teal lighten-1">
+  <!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer to an instance variable and access that from here. -->
   <% if current_volunteer %>
     <ul id="dropdown1" class="dropdown-content">
 
@@ -27,6 +29,7 @@
             <%= link_to 'Log Out', destroy_volunteer_sessions_path, :method => :delete %>
         </li>
     </ul>
+    <!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer to an instance variable and access that from here. -->
     <% elsif current_care_group == nil %>
     <ul id='dropdown1' class='dropdown-content'>
         <li>
@@ -40,7 +43,7 @@
 
 </ul>
 <% end %>
-
+<!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer to an instance variable and access that from here. -->
   <% if current_care_group %>
 <ul id="dropdown2" class="dropdown-content">
 
@@ -51,6 +54,7 @@
         <%= link_to 'Log Out', destroy_care_group_sessions_path, :method => :delete %>
     </li>
   </ul>
+  <!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer to an instance variable and access that from here. -->
   <% elsif current_volunteer == nil %>
   <ul id='dropdown2' class='dropdown-content'>
     <li>

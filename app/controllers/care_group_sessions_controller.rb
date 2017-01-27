@@ -1,5 +1,6 @@
 class CareGroupSessionsController < ApplicationController
 
+  # TODO: fix indentation
     def new
    end
 
@@ -16,6 +17,7 @@ class CareGroupSessionsController < ApplicationController
       flash[:notice] = "Incorrect email or password"
       redirect_to '/care_groups/login'
     end
+  # TODO: fix indentation
   end
 
   def destroy

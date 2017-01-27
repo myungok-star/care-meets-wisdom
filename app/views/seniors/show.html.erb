@@ -1,5 +1,6 @@
 <div class="center-align" style="margin-top: 30px;">
 
+<!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer or current_care_group to an instance variable and access that from here. -->
  <% if current_volunteer == nil %>
   <%= link_to "Edit", edit_care_group_senior_path(@senior), class: "waves-effect waves-light btn"  %>
   <%= link_to "Delete", delete_care_group_senior_path, method: :delete, class: "waves-effect waves-light btn" %>
@@ -7,6 +8,7 @@
 
   <%= link_to "Back", all_care_group_seniors_path, class: "waves-effect waves-light btn" %>
 
+  <!-- TODO: You are calling a controller helper method from the view. This is not ideal. Please assign the return value of current_volunteer or current_care_group to an instance variable and access that from here. -->
  <% if current_care_group == nil %>
  <%= link_to "Request to visit this senior", new_senior_visit_path(@senior), method: :post, class: "waves-effect waves-light btn" %>
  <% end %>
@@ -14,9 +16,11 @@
 </div>
 
 <div class="row center-align container" style="width: 350px; height: auto; margin-top: 25px">
+  <!-- TODO: Remove unused code from production -->
   <!-- <div class="col s12 m7"> -->
     <div class="card">
       <div class="card-image">
+        <!-- TODO: Host your own media on this application. Do not hotlink.  --> 
         <img src="https://share.okdothis.com/assets/default-avatar-c246f74ff56d382424ac2c750e40b0a6.png?w=64&h=64" style="width: 350px; height: 350px">
       </div>
       <div class="card-content">
