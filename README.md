@@ -8,9 +8,16 @@
 * Postgres SQL
 * Heroku
 * Materialize
+* Action Mailer
 
 ## Heroku
  * https://intense-chamber-58687.herokuapp.com/
 
 ## Wireframes
 ![alt tag](http://i.imgur.com/B97jEqf.png)
+
+## ERD
+![alt tag] (http://i.imgur.com/WxqLULa.jpg)
+
+## User Stories
+* https://docs.google.com/document/d/1fhzhL9l2HGFaIwbjwRq-jWXKmuQC3qwmxvr2MD0sL3Q/edit?usp=sharing
