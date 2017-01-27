@@ -1,5 +1,6 @@
 class CareGroupSessionsController < ApplicationController
-    def new; end
+    def new
+    end
 
     def create
         @care_group = CareGroup.find_by_email(params[:email])

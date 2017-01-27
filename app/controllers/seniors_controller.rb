@@ -1,9 +1,4 @@
 class SeniorsController < ApplicationController
-    # def index
-    #   @seniors = Senior.all
-    #   @care_group = current_care_group
-    #   @current_care_group_id = params[:care_group_id]
-    # end
     def new
         @senior = Senior.new
     end

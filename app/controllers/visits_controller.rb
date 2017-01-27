@@ -10,7 +10,6 @@ class VisitsController < ApplicationController
         @volunteer = @visit.volunteer
         @visit.save
         flash[:notice] = 'Your visit request has been sent to the care group'
-
         redirect_to volunteer_path(current_volunteer)
     end
 
@@ -26,7 +25,7 @@ class VisitsController < ApplicationController
         if @visit.save
             flash[:notice] = 'Approved!'
             redirect_to care_group_path(current_care_group)
-       end
+        end
     end
 
     def complete
@@ -44,16 +43,14 @@ class VisitsController < ApplicationController
         @visit = Visit.find_by_id(params[:id])
         @volunteer = Volunteer.find(@visit.volunteer_id)
         @senior = Senior.find_by_id(params[:senior_id])
-        # @visit.destroy
         if @visit.destroy
             if current_volunteer
                 flash[:notice] = 'Your visit request has been successfully cancelled!'
                 redirect_to volunteer_path(current_volunteer)
-
             elsif current_care_group
                 flash[:notice] = 'This visit has been completed!'
                 redirect_to care_group_path(current_care_group)
-              end
+            end
         end
     end
 end
