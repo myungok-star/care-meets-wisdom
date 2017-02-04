@@ -12,10 +12,10 @@
     <body>
         <nav>
             <div class="nav-wrapper teal lighten-1">
-                <% if @current_volunteer %>
+                <% if current_volunteer %>
                 <ul id="dropdown1" class="dropdown-content">
                     <li>
-                        <%= link_to 'My Profile', volunteer_path(@current_volunteer) %>
+                        <%= link_to 'My Profile', volunteer_path(current_volunteer.id) %>
                     </li>
                     <li>
                         <%= link_to 'Care Groups', all_care_groups_path %>
@@ -24,7 +24,7 @@
                         <%= link_to 'Log Out', destroy_volunteer_sessions_path, :method => :delete %>
                     </li>
                 </ul>
-                <% elsif @current_care_group == nil %>
+                <% elsif current_care_group == nil %>
                 <ul id='dropdown1' class='dropdown-content'>
                     <li>
                         <a href="/volunteers/signup">Sign Up</a>
@@ -35,16 +35,16 @@
                 </ul>
                 <% end %>
 
-                <% if @current_care_group %>
+                <% if current_care_group %>
                 <ul id="dropdown2" class="dropdown-content">
                     <li>
-                        <%= link_to 'My Profile', care_group_path(@current_care_group) %>
+                        <%= link_to 'My Profile', care_group_path(current_care_group.id) %>
                     </li>
                     <li>
                         <%= link_to 'Log Out', destroy_care_group_sessions_path, :method => :delete %>
                     </li>
                 </ul>
-                <% elsif @current_volunteer == nil %>
+                <% elsif current_volunteer == nil %>
                 <ul id='dropdown2' class='dropdown-content'>
                     <li>
                         <a href="/care_groups/signup">Sign Up</a>
