@@ -19,6 +19,7 @@
             = f.password_field :password, class: "form-control", placeholder: "Password"
           .form-group
             = f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password"
+            = f.hidden_field :photo, :value => "http://i.imgur.com/9JlhmGx.png"
           .form-group
             %br
             = f.submit "Sign Up", class: "btn btn-success"

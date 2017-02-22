@@ -14,6 +14,7 @@
             = f.text_field :location, class: "form-control", placeholder: "Location"
             .form-group
               = f.text_field :interests, class: "form-control", placeholder: "Interests"
+              = f.hidden_field :image, :value => "http://i.imgur.com/9JlhmGx.png"
           .form-group
           %br
             = f.submit "Submit", class: "btn btn-success"
