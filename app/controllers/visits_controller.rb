@@ -15,6 +15,7 @@ class VisitsController < ApplicationController
 
     def show
         @visit = Visit.find_by_id(params[:id])
+        @care_group = current_care_group
     end
 
     def approve
