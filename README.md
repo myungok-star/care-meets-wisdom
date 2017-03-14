@@ -11,7 +11,7 @@
 * Action Mailer
 
 ## Heroku
- * https://intense-chamber-58687.herokuapp.com/
+ * https://welcomewisdom.herokuapp.com/
 
 ## Wireframes
 ![alt tag](http://i.imgur.com/B97jEqf.png)
