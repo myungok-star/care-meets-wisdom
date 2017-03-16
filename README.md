@@ -16,7 +16,7 @@
 ## Wireframes
 ![alt tag](http://i.imgur.com/B97jEqf.png)
 
-## ERD
+## ERD (Entity Relationship Diagram)
 ![alt tag](http://i.imgur.com/VayjMGP.png)
 
 ## User Stories
