@@ -17,7 +17,7 @@
 ![alt tag](http://i.imgur.com/B97jEqf.png)
 
 ## ERD
-![alt tag] (http://i.imgur.com/WxqLULa.jpg)
+![alt tag] (http://i.imgur.com/VayjMGP.png)
 
 ## User Stories
 * https://docs.google.com/document/d/1fhzhL9l2HGFaIwbjwRq-jWXKmuQC3qwmxvr2MD0sL3Q/edit?usp=sharing
