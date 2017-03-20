@@ -5,7 +5,7 @@
 
 ## Technologies
 * Ruby on Rails
-* Postgres SQL
+* PostgreSQL
 * Heroku
 * Materialize
 * Action Mailer
